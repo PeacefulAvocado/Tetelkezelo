@@ -1,0 +1,11 @@
+D:\Users\Joni\Programming\c#\Tetelkezelo\Tetelkezelo\bin\Debug\Tetelkezelo.exe.config
+D:\Users\Joni\Programming\c#\Tetelkezelo\Tetelkezelo\bin\Debug\Tetelkezelo.exe
+D:\Users\Joni\Programming\c#\Tetelkezelo\Tetelkezelo\bin\Debug\Tetelkezelo.pdb
+D:\Users\Joni\Programming\c#\Tetelkezelo\Tetelkezelo\obj\Debug\Tetelkezelo.csproj.AssemblyReference.cache
+D:\Users\Joni\Programming\c#\Tetelkezelo\Tetelkezelo\obj\Debug\Tetelkezelo.Form1.resources
+D:\Users\Joni\Programming\c#\Tetelkezelo\Tetelkezelo\obj\Debug\Tetelkezelo.Properties.Resources.resources
+D:\Users\Joni\Programming\c#\Tetelkezelo\Tetelkezelo\obj\Debug\Tetelkezelo.csproj.GenerateResource.cache
+D:\Users\Joni\Programming\c#\Tetelkezelo\Tetelkezelo\obj\Debug\Tetelkezelo.csproj.CoreCompileInputs.cache
+D:\Users\Joni\Programming\c#\Tetelkezelo\Tetelkezelo\obj\Debug\Tetelkezelo.exe
+D:\Users\Joni\Programming\c#\Tetelkezelo\Tetelkezelo\obj\Debug\Tetelkezelo.pdb
+D:\Users\Joni\Programming\c#\Tetelkezelo\Tetelkezelo\obj\Debug\Tetelkezelo.csproj.CopyComplete
