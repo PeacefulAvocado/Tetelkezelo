@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.IO;
+using MySqlX.XDevAPI.Common;
+using System.Xml.Linq;
+using System.Data.Odbc;
 
 namespace Tetelkezelo
 {
@@ -95,7 +98,8 @@ namespace Tetelkezelo
                 OpenFileDialog ofd = new OpenFileDialog();
                 ofd.Filter = "PDF (*.pdf) | *.pdf";
                 if (ofd.ShowDialog() == DialogResult.OK) {
-                    //StreamReader bef = new StreamReader(ofd.FileName);
+                   draft_file.Text = ofd.FileName;
+                    
                     Draft = File.ReadAllBytes(ofd.FileName);
                 }
                 
@@ -115,7 +119,7 @@ namespace Tetelkezelo
                 ofd.Filter = "PDF (*.pdf) | *.pdf";
                 if(ofd.ShowDialog() == DialogResult.OK)
                 {
-                    //StreamReader bef = new StreamReader(ofd.FileName);
+                    essay_file.Text = ofd.FileName;
                     Essay = File.ReadAllBytes(ofd.FileName);
                 }
             } catch
@@ -125,8 +129,43 @@ namespace Tetelkezelo
             }
         }
 
+        private void addSubject(string subject)
+        {
+           // DialogResult result = MessageBox.Show("This title does not exist in the database, do you want to add it?", "Confimation", MessageBoxButtons.YesNo);
+             
+
+            string sql = $"CREATE TABLE IF NOT EXISTS {subject} (id INT AUTO_INCREMENT PRIMARY KEY, title VARCHAR(255) NOT NULL, draft MEDIUMTEXT, essay MEDIUMTEXT, changed TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP); ";
+
+            Lekerdez(sql, 0);
+        }
+        private void addTitle(string subject,string title)
+        {
+            addSubject(subject);
+            DialogResult result = MessageBox.Show("This title does not exist in the database, do you want to add it?", "Confimation", MessageBoxButtons.YesNo);
+          
+            string sql = $"INSERT IGNORE INTO {subject} (title) Values ({title})";
+
+            Lekerdez(sql, 0);
+
+        }
+
+        private void addDraft(Byte[] data)
+        {
+          //hozzaadas
+        }
+
+        private void addEssay(Byte[] data)
+        {
+            //hozzadas
+        }
+
         private void uploadData_Click(object sender, EventArgs e)
         {
+
+
+            
+
+
             List<string> subjects = tombLekerdez("SELECT table_name FROM information_schema.tables WHERE table_schema = 'Tetelkezelo';");
             if(subjectTextBox.Text == "")
             {
@@ -135,26 +174,35 @@ namespace Tetelkezelo
             {
 
 
-                DialogResult result = MessageBox.Show("This title does not exist in the database, do you want to add it?", "Confimation", MessageBoxButtons.YesNo);
-                string subject = subjectTextBox.Text;
-                
-                string sql = $"CREATE TABLE IF NOT EXISTS {subject} (id INT AUTO_INCREMENT PRIMARY KEY, title VARCHAR(255) NOT NULL, draft MEDIUMTEXT, essay MEDIUMTEXT, changed TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP); ";
-
-                Lekerdez(sql,0);
-
-
                 if(TitleTextBox.Text == "")
                 {
                     MessageBox.Show("Missing title!");
                 } else
                 {
-                    result = MessageBox.Show("This title does not exist in the database, do you want to add it?", "Confimation", MessageBoxButtons.YesNo);
-                    if(result == DialogResult.Yes)
+                    if(Draft == null)
                     {
-                        sql = $"INSERT IGNORE INTO {subject} (title) Values ({TitleTextBox.Text})";
+                       
+                        addTitle(subjectTextBox.Text,TitleTextBox.Text);
+                    } else
+                    {
+
+                        if(Essay == null)
+                        {
+                            addTitle(subjectTextBox.Text, TitleTextBox.Text);
+                            addDraft(Draft);
+                        } else
+                        {
+                            addTitle(subjectTextBox.Text, TitleTextBox.Text);
+                            addDraft(Draft);
+                            addEssay(Essay);
+                        }
+
                     }
+
+                   
                         
                 }
+
             }
         }
 

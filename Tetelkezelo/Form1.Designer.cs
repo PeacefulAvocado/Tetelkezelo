@@ -31,6 +31,7 @@
             this.read = new System.Windows.Forms.Button();
             this.upload = new System.Windows.Forms.Button();
             this.upload_panel = new System.Windows.Forms.Panel();
+            this.uploadData = new System.Windows.Forms.Button();
             this.essay_file = new System.Windows.Forms.Button();
             this.draft_file = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -41,7 +42,6 @@
             this.SubjectComboBox = new System.Windows.Forms.ComboBox();
             this.subjectTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.uploadData = new System.Windows.Forms.Button();
             this.upload_panel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,8 +86,20 @@
             this.upload_panel.Size = new System.Drawing.Size(1497, 605);
             this.upload_panel.TabIndex = 2;
             // 
+            // uploadData
+            // 
+            this.uploadData.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.uploadData.Location = new System.Drawing.Point(891, 417);
+            this.uploadData.Name = "uploadData";
+            this.uploadData.Size = new System.Drawing.Size(89, 40);
+            this.uploadData.TabIndex = 10;
+            this.uploadData.Text = "Upload";
+            this.uploadData.UseVisualStyleBackColor = true;
+            this.uploadData.Click += new System.EventHandler(this.uploadData_Click);
+            // 
             // essay_file
             // 
+            this.essay_file.AutoSize = true;
             this.essay_file.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.essay_file.Location = new System.Drawing.Point(525, 312);
             this.essay_file.Name = "essay_file";
@@ -99,10 +111,11 @@
             // 
             // draft_file
             // 
+            this.draft_file.AutoSize = true;
             this.draft_file.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.draft_file.Location = new System.Drawing.Point(525, 216);
             this.draft_file.Name = "draft_file";
-            this.draft_file.Size = new System.Drawing.Size(164, 33);
+            this.draft_file.Size = new System.Drawing.Size(164, 34);
             this.draft_file.TabIndex = 8;
             this.draft_file.Text = "select file...";
             this.draft_file.UseVisualStyleBackColor = true;
@@ -184,17 +197,6 @@
             this.label1.Size = new System.Drawing.Size(73, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "Subject";
-            // 
-            // uploadData
-            // 
-            this.uploadData.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.uploadData.Location = new System.Drawing.Point(891, 417);
-            this.uploadData.Name = "uploadData";
-            this.uploadData.Size = new System.Drawing.Size(89, 40);
-            this.uploadData.TabIndex = 10;
-            this.uploadData.Text = "Upload";
-            this.uploadData.UseVisualStyleBackColor = true;
-            this.uploadData.Click += new System.EventHandler(this.uploadData_Click);
             // 
             // Form1
             // 
